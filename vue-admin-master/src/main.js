@@ -10,13 +10,17 @@ import Vuex from 'vuex'
 //import NProgress from 'nprogress'
 //import 'nprogress/nprogress.css'
 import routes from './routes'
-import Mock from './mock'
-Mock.bootstrap();
 import 'font-awesome/css/font-awesome.min.css'
+import axios from 'axios'  //axios全局配置
 
 Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(Vuex)
+
+axios.defaults.baseURL = "http://localhost:9527/services"  //使用网关地址默认发送请求时会自动苹姐这个地址
+// 将API方法绑定到全局  /plat/login
+Vue.prototype.$http = axios
+Vue.config.productionTip = false
 
 //NProgress.configure({ showSpinner: false });
 
